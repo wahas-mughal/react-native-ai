@@ -1,0 +1,11 @@
+schema: spec-driven
+
+# Project context (optional)
+# context: |
+#   Tech stack: TypeScript, React Native
+#   Domain: React Native AI
+
+# Per-artifact rules (optional)
+# rules:
+#   proposal:
+#     - Keep proposals under 500 words

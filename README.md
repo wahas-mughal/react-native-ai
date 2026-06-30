@@ -60,6 +60,14 @@ yarn ios
 
 If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
+**Recommended for Apple Intelligence chat:**
+
+```sh
+npm run ios -- --simulator "iPhone 17 Pro"
+```
+
+This targets the iOS 26+ simulator and avoids conflicts when a physical device is also connected.
+
 This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
 ## Step 3: Modify your app
@@ -81,6 +89,33 @@ You've successfully run and modified your React Native App. :partying_face:
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+
+# Apple Intelligence Requirements
+
+This app uses on-device Apple Intelligence via `@react-native-ai/apple`. Chat only works on **iOS 26+** with Apple Intelligence enabled.
+
+## Simulator setup
+
+On the iOS Simulator, generation uses the model on your **Mac**, so you need:
+
+- **macOS 26+** with Apple Intelligence enabled (System Settings → Apple Intelligence & Siri)
+- **Xcode, macOS, and simulator** on matching **26.x** versions
+- Mac on an **internal drive** (Apple Intelligence may not work from external volumes)
+- System language **English** and region **United States** if assets fail to download
+
+If you see `GenerationError error -1`:
+
+1. Enable Apple Intelligence on your Mac
+2. Align Xcode/macOS/simulator versions (e.g. all 26.5)
+3. Restart the simulator: `npm run ios -- --simulator "iPhone 17 Pro"`
+4. Toggle Apple Intelligence off → restart Mac → turn it back on to re-download assets
+
+## Run commands
+
+```sh
+npm start -- --reset-cache
+npm run ios -- --simulator "iPhone 17 Pro"
+```
 
 # Troubleshooting
 
